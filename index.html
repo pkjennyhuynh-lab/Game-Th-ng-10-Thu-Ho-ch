@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MÙA VÀNG THÁNG 10 — HÀNH TRÌNH BỘI THU</title>
+  <style>
+    :root {
+      --primary: #d97706;
+      --primary-hover: #b45309;
+      --primary-light: #fef3c7;
+      --secondary: #16a34a;
+      --secondary-hover: #15803d;
+      --secondary-light: #dcfce7;
+      --accent: #ca8a04;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --bg-gradient: linear-gradient(135deg, #fdfcf7 0%, #fcf7ec 50%, #f5eee1 100%);
+      --card-bg: #ffffff;
+      --card-back-bg: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      --card-back-border: #f59e0b;
+      --card-front-bg: #ffffff;
+      --card-matched-bg: #ecfdf5;
+      --card-matched-border: #10b981;
+      --card-active-border: #d97706;
+      --text-dark: #292524;
+      --text-muted: #57534e;
+      --text-light: #78716c;
+      --border-color: #e7e5e4;
+      --shadow-sm: 0 2px 4px rgba(69, 26, 3, 0.06);
+      --shadow-md: 0 4px 10px rgba(69, 26, 3, 0.1);
+      --shadow-lg: 0 10px 25px rgba(69, 26, 3, 0.15);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      user-select: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    /* Brand Header */
+    .game-header {
+      text-align: center;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .harvest-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      color: #92400e;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid #fde68a;
+      margin-bottom: 8px;
+    }
+
+    .game-title {
+      font-size: clamp(1.4rem, 4vw, 2.1rem);
+      font-weight: 800;
+      color: #78350f;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .game-slogan {
+      font-size: clamp(0.85rem, 2vw, 1.05rem);
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+    }
+
+    .btn:active:not(:disabled) {
+      transform: scale(0.97);
+    }
+
+    .btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      box-shadow: 0 6px 18px rgba(217, 119, 6, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: #78350f;
+      border: 1.5px solid #fde68a;
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--primary-light);
+      border-color: #f59e0b;
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+    }
+
+    .btn-success:hover:not(:disabled) {
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      transform: translateY(-1px);
+    }
+
+    .btn-lg {
+      font-size: 1.15rem;
+      padding: 16px 36px;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    .btn-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1.5px solid #fde68a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      color: #78350f;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-icon:hover {
+      background: var(--primary-light);
+      transform: scale(1.06);
+    }
+
+    /* Screen Management */
+    .screen {
+      display: none;
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* HOME SCREEN */
+    .home-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: clamp(18px, 4vw, 32px);
+      box-shadow: var(--shadow-md);
+      border: 1.5px solid #fde68a;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #78350f;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .rule-item {
+      background: #fffdf8;
+      border: 1px solid #fde68a;
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .rule-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--primary-light);
+      color: #92400e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      border: 1px solid #fcd34d;
+    }
+
+    .rule-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #78350f;
+      margin-bottom: 4px;
+    }
+
+    .rule-text p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Roadmap Container */
+    .journey-roadmap {
+      background: #fffdf8;
+      border: 1.5px solid #fde68a;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    .roadmap-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .roadmap-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: #ffffff;
+      border: 1px solid #f3ece0;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 1px 3px rgba(69, 26, 3, 0.04);
+    }
+
+    .roadmap-stage-num {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      background: var(--primary-light);
+      color: #92400e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      border: 1px solid #fde68a;
+    }
+
+    .roadmap-stage-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .roadmap-stage-title {
+      font-weight: 700;
+      color: var(--text-dark);
+      font-size: 0.92rem;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .roadmap-stage-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .roadmap-stage-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    .roadmap-stage-badge.type-memory {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fcd34d;
+    }
+
+    .roadmap-stage-badge.type-quiz {
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
+
+    /* GAME SCREEN */
+    .game-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .current-stage-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1.5px solid #fde68a;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #78350f;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Stats HUD */
+    .stats-hud {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .stat-pill {
+      background: #ffffff;
+      border: 1.5px solid #fde68a;
+      border-radius: var(--radius-md);
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+
+    .stat-value {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #78350f;
+    }
+
+    .stat-value.highlight {
+      color: #d97706;
+    }
+
+    /* Progress Bar */
+    .progress-wrapper {
+      margin-bottom: 14px;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background: #fde68a;
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #f59e0b 0%, #16a34a 100%);
+      transition: width 0.35s ease;
+      border-radius: var(--radius-full);
+    }
+
+    /* Banner */
+    .game-message-banner {
+      background: #fffdf8;
+      border: 1.5px solid #fde68a;
+      border-radius: var(--radius-md);
+      padding: 10px 16px;
+      margin-bottom: 16px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-sm);
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #78350f;
+    }
+
+    .game-message-banner.success {
+      background: #ecfdf5;
+      border-color: #10b981;
+      color: #065f46;
+    }
+
+    .game-message-banner.info {
+      background: #fffdf8;
+      border-color: #fde68a;
+      color: #78350f;
+    }
+
+    .game-message-banner.warning {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+
+    /* Stage View Containers */
+    .stage-view {
+      display: none;
+    }
+
+    .stage-view.active {
+      display: block;
+    }
+
+    /* MEMORY CARDS GRID */
+    .cards-grid-container {
+      margin-bottom: 20px;
+    }
+
+    .cards-grid {
+      display: grid;
+      gap: 12px;
+      justify-content: center;
+      perspective: 1000px;
+    }
+
+    .cards-grid.cards-4 {
+      grid-template-columns: repeat(2, minmax(0, 160px));
+    }
+    .cards-grid.cards-6 {
+      grid-template-columns: repeat(3, minmax(0, 140px));
+    }
+    .cards-grid.cards-8 {
+      grid-template-columns: repeat(4, minmax(0, 130px));
+    }
+    .cards-grid.cards-12 {
+      grid-template-columns: repeat(4, minmax(0, 120px));
+    }
+    .cards-grid.cards-16 {
+      grid-template-columns: repeat(4, minmax(0, 115px));
+    }
+    .cards-grid.cards-many {
+      grid-template-columns: repeat(auto-fill, minmax(clamp(80px, 12vw, 120px), 1fr));
+    }
+
+    @media (max-width: 640px) {
+      .cards-grid.cards-4 { grid-template-columns: repeat(2, 1fr); }
+      .cards-grid.cards-6 { grid-template-columns: repeat(3, 1fr); }
+      .cards-grid.cards-8 { grid-template-columns: repeat(4, 1fr); }
+      .cards-grid.cards-12 { grid-template-columns: repeat(3, 1fr); }
+      .cards-grid.cards-16 { grid-template-columns: repeat(4, 1fr); }
+      .cards-grid { gap: 8px; }
+    }
+
+    .memory-card {
+      aspect-ratio: 3 / 4;
+      position: relative;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .memory-card:focus-visible {
+      outline: 3px solid #d97706;
+      outline-offset: 3px;
+    }
+
+    .memory-card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .memory-card.matched {
+      cursor: default;
+      animation: matchSuccess 0.5s ease-out forwards;
+    }
+
+    .memory-card.mismatch {
+      animation: shakeMismatch 0.4s ease-in-out;
+    }
+
+    @keyframes matchSuccess {
+      0% { transform: rotateY(180deg) scale(1); }
+      50% { transform: rotateY(180deg) scale(1.05); }
+      100% { transform: rotateY(180deg) scale(1); }
+    }
+
+    @keyframes shakeMismatch {
+      0%, 100% { transform: rotateY(180deg) translateX(0); }
+      25% { transform: rotateY(180deg) translateX(-6px); }
+      75% { transform: rotateY(180deg) translateX(6px); }
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      border: 2px solid;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Card Back (Úp - có số) */
+    .card-face-back {
+      background: var(--card-back-bg);
+      border-color: var(--card-back-border);
+      color: #92400e;
+    }
+
+    .card-back-inner {
+      width: 100%;
+      height: 100%;
+      border: 1.5px dashed rgba(217, 119, 6, 0.45);
+      border-radius: calc(var(--radius-md) - 4px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .card-back-pattern {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      margin-bottom: 2px;
+      opacity: 0.85;
+    }
+
+    .card-number {
+      font-size: clamp(1.4rem, 3.8vw, 2rem);
+      font-weight: 800;
+      color: #78350f;
+      line-height: 1;
+    }
+
+    .card-back-footer {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+      color: #92400e;
+      font-weight: 600;
+    }
+
+    /* Card Front (Ngửa - thuần chữ, căn giữa, KHÔNG icon) */
+    .card-face-front {
+      background: var(--card-front-bg);
+      border-color: #f59e0b;
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .card-text {
+      font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+      font-weight: 700;
+      color: #451a03;
+      line-height: 1.35;
+      margin: 0;
+      text-align: center;
+      word-break: break-word;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .memory-card.matched .card-face-front {
+      background: var(--card-matched-bg);
+      border-color: var(--card-matched-border);
+      color: #065f46;
+    }
+
+    .memory-card.single-active .card-face-front {
+      border-color: #d97706;
+      box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.25);
+    }
+
+    /* QUIZ STAGE VIEW */
+    .quiz-container {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto 20px auto;
+    }
+
+    .quiz-card {
+      background: #ffffff;
+      border: 2px solid #fde68a;
+      border-radius: var(--radius-lg);
+      padding: clamp(18px, 4vw, 28px);
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .quiz-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .quiz-question-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      color: #92400e;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid #fde68a;
+    }
+
+    .quiz-question-title {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-weight: 800;
+      color: #292524;
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .quiz-option-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: #fbfbf9;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+      width: 100%;
+      font-family: inherit;
+    }
+
+    .quiz-option-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-option-btn:focus-visible {
+      outline: 3px solid #d97706;
+      outline-offset: 2px;
+    }
+
+    .quiz-option-btn:disabled {
+      cursor: default;
+    }
+
+    .option-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      background: #f5eee1;
+      color: #78350f;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .option-text {
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .quiz-option-btn.correct {
+      border-color: #10b981;
+      background: #ecfdf5;
+      color: #065f46;
+    }
+
+    .quiz-option-btn.correct .option-letter {
+      background: #10b981;
+      color: #ffffff;
+    }
+
+    .quiz-option-btn.incorrect {
+      border-color: #ef4444;
+      background: #fef2f2;
+      color: #991b1b;
+    }
+
+    .quiz-option-btn.incorrect .option-letter {
+      background: #ef4444;
+      color: #ffffff;
+    }
+
+    .quiz-feedback {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .quiz-feedback.active {
+      display: block;
+    }
+
+    .quiz-feedback.success {
+      background: #ecfdf5;
+      border: 1.5px solid #10b981;
+      color: #065f46;
+    }
+
+    .quiz-feedback.error {
+      background: #fef2f2;
+      border: 1.5px solid #ef4444;
+      color: #991b1b;
+    }
+
+    .quiz-feedback-title {
+      font-weight: 800;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quiz-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
+    }
+
+    /* Bottom Bar */
+    .game-bottom-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* MODALS */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(41, 37, 36, 0.65);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border: 2px solid #fde68a;
+      border-radius: var(--radius-lg);
+      padding: clamp(20px, 4vw, 32px);
+      width: 100%;
+      max-width: 520px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.95);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-backdrop.active .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .modal-title {
+      font-size: clamp(1.25rem, 3vw, 1.6rem);
+      font-weight: 800;
+      color: #78350f;
+      margin-bottom: 6px;
+    }
+
+    .modal-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .stats-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .summary-item {
+      background: #fffdf8;
+      border: 1px solid #fde68a;
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .summary-item.full-width {
+      grid-column: 1 / -1;
+      background: var(--primary-light);
+      border-color: #f59e0b;
+      padding: 14px;
+    }
+
+    .summary-item-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .summary-item-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #78350f;
+    }
+
+    .summary-item.full-width .summary-item-value {
+      font-size: 1.6rem;
+      color: #b45309;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* ERROR SCREEN */
+    .error-container {
+      background: #ffffff;
+      border: 2px solid #ef4444;
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      max-width: 650px;
+      margin: 30px auto;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .error-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #b91c1c;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .error-message {
+      font-size: 1rem;
+      color: #374151;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      background: #fef2f2;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      border-left: 4px solid #ef4444;
+    }
+
+    .file-input-wrapper {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px dashed #e5e7eb;
+      text-align: center;
+    }
+
+    /* Footer */
+    .game-footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: auto;
+      padding-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="game-header">
+      <div class="harvest-badge">
+        <span>🌾</span> MÙA VÀNG BỘI THU <span>🏆</span>
+      </div>
+      <h1 class="game-title" id="appTitle">MÙA VÀNG THÁNG 10</h1>
+      <p class="game-slogan" id="appSlogan">Lật đúng thẻ — Trả lời thông thái — Gặt hái thành công!</p>
+    </header>
+
+    <!-- Error Screen -->
+    <div id="errorScreen" class="screen">
+      <div class="error-container">
+        <div class="error-title">⚠️ Lỗi dữ liệu trò chơi</div>
+        <p class="error-message" id="errorMessageText">
+          Không thể đọc cấu hình từ file questions.json.
+        </p>
+        <div style="font-size: 0.9rem; color: #4b5563; margin-bottom: 16px;">
+          <strong>Hướng dẫn khắc phục:</strong>
+          <ul style="margin-left: 20px; margin-top: 6px;">
+            <li>Kiểm tra tính chính xác của file <code>questions.json</code>.</li>
+            <li>Đảm bảo các màn (stages) tham chiếu đúng mã cặp thẻ (pairIds) hoặc mã câu hỏi (questionIds).</li>
+            <li>Chạy game qua HTTP server (ví dụ: <code>python -m http.server 8000</code>).</li>
+          </ul>
+        </div>
+        <div class="file-input-wrapper">
+          <p style="font-size: 0.85rem; margin-bottom: 8px; color: #4b5563;">
+            Hoặc chọn file <code>questions.json</code> trực tiếp từ máy tính của bạn:
+          </p>
+          <input type="file" id="manualFileInput" accept=".json" style="display: none;">
+          <button type="button" class="btn btn-secondary" id="btnSelectFile">
+            📁 Chọn file questions.json
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOME SCREEN -->
+    <main id="homeScreen" class="screen active">
+      <section class="home-card">
+        <h2 class="section-title">
+          <span>🌾</span> Luật chơi & Thử thách
+        </h2>
+        <div class="rules-grid">
+          <div class="rule-item">
+            <div class="rule-icon">🧩</div>
+            <div class="rule-text">
+              <h4>Màn Lật Thẻ (Memory)</h4>
+              <p>Mặt úp có số, mặt ngửa là chữ. Lật tìm 2 thẻ thuộc cùng một cặp để ghép đúng.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">💡</div>
+            <div class="rule-text">
+              <h4>Chủ Động Úp Thẻ</h4>
+              <p>Khi đang lật 1 thẻ, chạm lại vào chính thẻ đó để úp xuống mà không bị tính lỗi hay phạt điểm!</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">❓</div>
+            <div class="rule-text">
+              <h4>Màn Chọn Đáp Án (Quiz)</h4>
+              <p>Đọc câu hỏi kiến thức nông sản, chọn 1 đáp án chính xác nhất để nhận điểm.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">🏆</div>
+            <div class="rule-text">
+              <h4>Hành Trình Nhiều Màn</h4>
+              <p>Vượt qua toàn bộ các màn chơi theo lộ trình để nhận tổng kết vinh danh!</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title">
+          <span>🗺️</span> Lộ trình các màn chơi
+        </h2>
+        <div class="journey-roadmap" id="journeyRoadmap">
+          <div class="roadmap-list" id="roadmapList">
+            <!-- Dynamically populated from stages -->
+            <div style="text-align: center; color: var(--text-muted); padding: 14px;">
+              Đang tải danh sách màn chơi...
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="btnStartGame" class="btn btn-primary btn-lg btn-block" disabled>
+          BẮT ĐẦU HÀNH TRÌNH 🌾
+        </button>
+      </section>
+    </main>
+
+    <!-- GAME SCREEN -->
+    <main id="gameScreen" class="screen">
+      <!-- Top Bar -->
+      <div class="game-top-bar">
+        <div class="top-bar-left">
+          <button type="button" class="btn-icon" id="btnHomeFromGame" title="Về trang chủ" aria-label="Về trang chủ">
+            🏠
+          </button>
+          <div class="current-stage-tag" id="gameStageBadge">
+            <span>🌾</span> <span id="gameStageTitleText">Màn 1 / 1</span>
+          </div>
+        </div>
+        <div class="top-bar-right">
+          <button type="button" class="btn-icon" id="btnToggleAudio" title="Bật/Tắt âm thanh" aria-label="Bật/Tắt âm thanh">
+            🔊
+          </button>
+          <button type="button" class="btn-icon" id="btnPauseGame" title="Tạm dừng" aria-label="Tạm dừng">
+            ⏸️
+          </button>
+          <button type="button" class="btn-icon" id="btnRestartJourney" title="Chơi lại từ đầu" aria-label="Chơi lại từ đầu">
+            🔄
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats HUD -->
+      <div class="stats-hud">
+        <div class="stat-pill">
+          <span class="stat-label">Tổng điểm</span>
+          <span class="stat-value highlight" id="hudTotalScore">0</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-label" id="hudStageProgressLabel">Tiến trình màn</span>
+          <span class="stat-value" id="hudStageProgress">0/0</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-label">Điểm màn này</span>
+          <span class="stat-value" id="hudStageScore">0</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-label" id="hudActionLabel">Số lần lật</span>
+          <span class="stat-value" id="hudFlips">0</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-label">Thời gian</span>
+          <span class="stat-value" id="hudTimer">00:00</span>
+        </div>
+      </div>
+
+      <!-- Overall Progress Bar -->
+      <div class="progress-wrapper">
+        <div class="progress-bar-bg" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+      </div>
+
+      <!-- Message Banner -->
+      <div class="game-message-banner info" id="gameMessageBanner" aria-live="polite">
+        Bắt đầu màn chơi!
+      </div>
+
+      <!-- 1. MEMORY STAGE VIEW -->
+      <div id="memoryStageView" class="stage-view">
+        <div class="cards-grid-container">
+          <div class="cards-grid" id="cardsGrid">
+            <!-- Dynamically populated cards -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. QUIZ STAGE VIEW -->
+      <div id="quizStageView" class="stage-view">
+        <div class="quiz-container">
+          <div class="quiz-card" id="quizCard">
+            <div class="quiz-card-header">
+              <span class="quiz-question-badge" id="quizQuestionBadge">Câu hỏi 1 / 1</span>
+            </div>
+            <h3 class="quiz-question-title" id="quizQuestionText">Nội dung câu hỏi ở đây?</h3>
+            
+            <div class="quiz-options" id="quizOptionsContainer">
+              <!-- Dynamically populated options -->
+            </div>
+
+            <div class="quiz-feedback" id="quizFeedbackBox">
+              <div class="quiz-feedback-title" id="quizFeedbackTitle">🎉 Chính xác!</div>
+              <div id="quizFeedbackExplanation">Giải thích đáp án...</div>
+            </div>
+
+            <div class="quiz-actions">
+              <button type="button" class="btn btn-primary" id="btnNextQuestion" style="display: none;">
+                CÂU TIẾP THEO ➔
+              </button>
+              <button type="button" class="btn btn-success" id="btnCompleteQuizStage" style="display: none;">
+                HOÀN THÀNH MÀN QUIZ 🌾
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom controls -->
+      <div class="game-bottom-bar">
+        <button type="button" class="btn btn-secondary" id="btnRestartBottom">
+          🔄 Chơi lại từ đầu
+        </button>
+        <button type="button" class="btn btn-secondary" id="btnHomeBottom">
+          🏠 Về trang chủ
+        </button>
+      </div>
+    </main>
+
+    <!-- Stage Complete Modal -->
+    <div id="stageCompleteModal" class="modal-backdrop">
+      <div class="modal-card">
+        <div class="modal-icon">🌾🎉</div>
+        <h2 class="modal-title" id="stageCompleteTitle">HOÀN THÀNH MÀN 1!</h2>
+        <p class="modal-subtitle" id="stageCompleteSubtitle">Bạn đã xuất sắc vượt qua thử thách này.</p>
+
+        <div class="stats-summary-grid">
+          <div class="summary-item full-width">
+            <span class="summary-item-label">Điểm màn này</span>
+            <span class="summary-item-value" id="stageCompletePoints">+100</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item-label">Tổng điểm hiện tại</span>
+            <span class="summary-item-value" id="stageCompleteTotalScore">100</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item-label" id="stageCompleteStatLabel">Kết quả màn</span>
+            <span class="summary-item-value" id="stageCompleteStatValue">2/2</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-primary btn-lg" id="btnNextStage">
+            MÀN TIẾP THEO 🌾 ➔
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final Game Victory Modal -->
+    <div id="victoryModal" class="modal-backdrop">
+      <div class="modal-card">
+        <div class="modal-icon">🌾🏆</div>
+        <h2 class="modal-title">CHÚC MỪNG — HOÀN THÀNH HÀNH TRÌNH MÙA VÀNG!</h2>
+        <p class="modal-subtitle">Gặt hái trọn vẹn — Trí tuệ và ghi nhớ xuất sắc!</p>
+
+        <div class="stats-summary-grid">
+          <div class="summary-item full-width">
+            <span class="summary-item-label">Tổng điểm gặt hái</span>
+            <span class="summary-item-value" id="summaryScore">0</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item-label">Số màn hoàn thành</span>
+            <span class="summary-item-value" id="summaryStages">0/0</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item-label">Cặp ghép đúng</span>
+            <span class="summary-item-value" id="summaryPairs">0</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item-label">Câu quiz đúng</span>
+            <span class="summary-item-value" id="summaryQuizCorrect">0</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item-label">Câu quiz sai</span>
+            <span class="summary-item-value" id="summaryQuizIncorrect">0</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item-label">Tổng số lần lật thẻ</span>
+            <span class="summary-item-value" id="summaryFlips">0</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item-label">Thời gian chơi</span>
+            <span class="summary-item-value" id="summaryTime">00:00</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-primary btn-lg" id="btnRestartVictory">
+            🔄 CHƠI LẠI TỪ ĐẦU
+          </button>
+          <button type="button" class="btn btn-secondary" id="btnHomeVictory">
+            🏠 VỀ TRANG CHỦ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pause Modal -->
+    <div id="pauseModal" class="modal-backdrop">
+      <div class="modal-card">
+        <div class="modal-icon">☕</div>
+        <h3 class="modal-title">Nghỉ tay ngày mùa</h3>
+        <p class="modal-subtitle">Hành trình đang được tạm dừng</p>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-primary" id="btnResumeGame">
+            ▶️ Tiếp tục chơi
+          </button>
+          <button type="button" class="btn btn-secondary" id="btnRestartFromPause">
+            🔄 Chơi lại từ đầu
+          </button>
+          <button type="button" class="btn btn-secondary" id="btnQuitFromPause">
+            🏠 Quay về trang chủ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Time Up Modal -->
+    <div id="timeUpModal" class="modal-backdrop">
+      <div class="modal-card">
+        <div class="modal-icon">⏳</div>
+        <h3 class="modal-title">Hết giờ ngày mùa!</h3>
+        <p class="modal-subtitle">Thời gian quy định cho hành trình đã kết thúc.</p>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-primary" id="btnRetryTimeUp">
+            🔄 Thử lại từ đầu
+          </button>
+          <button type="button" class="btn btn-secondary" id="btnHomeTimeUp">
+            🏠 Về trang chủ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="game-footer">
+      MÙA VÀNG THÁNG 10 &copy; Hệ thống trò chơi nhiều màn thuần HTML/CSS/JavaScript
+    </footer>
+  </div>
+
+  <script>
+    /**
+     * MÙA VÀNG THÁNG 10 — HỆ THỐNG NHIỀU MÀN CHƠI (MULTI-STAGE)
+     * Pure Vanilla JS Implementation
+     * Data driven by questions.json
+     */
+    (function () {
+      'use strict';
+
+      // --- SOUND CONTROLLER (Pure Web Audio API) ---
+      class SoundController {
+        constructor() {
+          this.enabled = true;
+          this.ctx = null;
+        }
+
+        initContext() {
+          if (!this.ctx) {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (AudioCtx) {
+              this.ctx = new AudioCtx();
+            }
+          }
+          if (this.ctx && this.ctx.state === 'suspended') {
+            this.ctx.resume();
+          }
+        }
+
+        playTone(freq, type, duration, gainValue = 0.1) {
+          if (!this.enabled) return;
+          try {
+            this.initContext();
+            if (!this.ctx) return;
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+            gain.gain.setValueAtTime(gainValue, this.ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start();
+            osc.stop(this.ctx.currentTime + duration);
+          } catch (e) {}
+        }
+
+        flip() {
+          this.playTone(480, 'sine', 0.08, 0.08);
+        }
+
+        unflip() {
+          this.playTone(320, 'triangle', 0.09, 0.06);
+        }
+
+        match() {
+          if (!this.enabled) return;
+          try {
+            this.initContext();
+            if (!this.ctx) return;
+            const now = this.ctx.currentTime;
+            const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6 arpeggio
+            notes.forEach((freq, idx) => {
+              const osc = this.ctx.createOscillator();
+              const gain = this.ctx.createGain();
+              osc.type = 'triangle';
+              osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+              gain.gain.setValueAtTime(0.09, now + idx * 0.08);
+              gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.08 + 0.22);
+              osc.connect(gain);
+              gain.connect(this.ctx.destination);
+              osc.start(now + idx * 0.08);
+              osc.stop(now + idx * 0.08 + 0.22);
+            });
+          } catch (e) {}
+        }
+
+        mismatch() {
+          if (!this.enabled) return;
+          try {
+            this.initContext();
+            if (!this.ctx) return;
+            const now = this.ctx.currentTime;
+            [260, 220].forEach((freq, idx) => {
+              const osc = this.ctx.createOscillator();
+              const gain = this.ctx.createGain();
+              osc.type = 'sawtooth';
+              osc.frequency.setValueAtTime(freq, now + idx * 0.12);
+              gain.gain.setValueAtTime(0.06, now + idx * 0.12);
+              gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.12 + 0.18);
+              osc.connect(gain);
+              gain.connect(this.ctx.destination);
+              osc.start(now + idx * 0.12);
+              osc.stop(now + idx * 0.12 + 0.18);
+            });
+          } catch (e) {}
+        }
+
+        stageComplete() {
+          if (!this.enabled) return;
+          try {
+            this.initContext();
+            if (!this.ctx) return;
+            const now = this.ctx.currentTime;
+            [392.00, 523.25, 659.25, 783.99].forEach((freq, idx) => {
+              const osc = this.ctx.createOscillator();
+              const gain = this.ctx.createGain();
+              osc.type = 'sine';
+              osc.frequency.setValueAtTime(freq, now + idx * 0.09);
+              gain.gain.setValueAtTime(0.09, now + idx * 0.09);
+              gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.09 + 0.3);
+              osc.connect(gain);
+              gain.connect(this.ctx.destination);
+              osc.start(now + idx * 0.09);
+              osc.stop(now + idx * 0.09 + 0.3);
+            });
+          } catch (e) {}
+        }
+
+        victory() {
+          if (!this.enabled) return;
+          try {
+            this.initContext();
+            if (!this.ctx) return;
+            const now = this.ctx.currentTime;
+            const notes = [392.00, 523.25, 659.25, 783.99, 1046.50, 1318.51];
+            notes.forEach((freq, idx) => {
+              const osc = this.ctx.createOscillator();
+              const gain = this.ctx.createGain();
+              osc.type = 'sine';
+              osc.frequency.setValueAtTime(freq, now + idx * 0.11);
+              gain.gain.setValueAtTime(0.12, now + idx * 0.11);
+              gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.11 + 0.45);
+              osc.connect(gain);
+              gain.connect(this.ctx.destination);
+              osc.start(now + idx * 0.11);
+              osc.stop(now + idx * 0.11 + 0.45);
+            });
+          } catch (e) {}
+        }
+
+        toggle() {
+          this.enabled = !this.enabled;
+          return this.enabled;
+        }
+      }
+
+      const sounds = new SoundController();
+
+      // --- GAME & JOURNEY STATE ---
+      const journey = {
+        data: null, // Full parsed data from questions.json
+        pairsMap: new Map(), // pairId -> pairObj
+        quizMap: new Map(),  // questionId -> quizObj
+
+        // Journey progression
+        currentStageIndex: 0,
+        totalStages: 0,
+        totalScore: 0,
+        completedStagesCount: 0,
+        stageResults: [],
+
+        // Aggregated overall statistics
+        totalFlips: 0,
+        totalAttempts: 0,
+        totalMatchedPairs: 0,
+        totalMissedPairs: 0,
+        totalQuizCorrect: 0,
+        totalQuizIncorrect: 0,
+
+        // Timer
+        totalTimeSeconds: 0,
+        timerInterval: null,
+        isPaused: false,
+        isGameOver: false,
+
+        // Current Active Stage State
+        currentStage: null,
+        stageScore: 0,
+        isStageCompleted: false,
+
+        // Memory stage state
+        memory: {
+          cards: [],
+          flippedCards: [],
+          isLocked: false,
+          matchedPairsCount: 0,
+          totalPairsCount: 0,
+          flipsCount: 0,
+          attemptsCount: 0,
+          missesCount: 0
+        },
+
+        // Quiz stage state
+        quiz: {
+          questions: [],
+          currentQuestionIndex: 0,
+          totalQuestionsCount: 0,
+          answeredQuestions: [],
+          currentAnswered: false,
+          correctCount: 0,
+          incorrectCount: 0
+        }
+      };
+
+      // --- DOM REFERENCES ---
+      const els = {
+        appTitle: document.getElementById('appTitle'),
+        appSlogan: document.getElementById('appSlogan'),
+        homeScreen: document.getElementById('homeScreen'),
+        gameScreen: document.getElementById('gameScreen'),
+        errorScreen: document.getElementById('errorScreen'),
+        errorMessageText: document.getElementById('errorMessageText'),
+        roadmapList: document.getElementById('roadmapList'),
+        btnStartGame: document.getElementById('btnStartGame'),
+        btnHomeFromGame: document.getElementById('btnHomeFromGame'),
+        btnToggleAudio: document.getElementById('btnToggleAudio'),
+        btnPauseGame: document.getElementById('btnPauseGame'),
+        btnRestartJourney: document.getElementById('btnRestartJourney'),
+        btnRestartBottom: document.getElementById('btnRestartBottom'),
+        btnHomeBottom: document.getElementById('btnHomeBottom'),
+        gameStageBadge: document.getElementById('gameStageBadge'),
+        gameStageTitleText: document.getElementById('gameStageTitleText'),
+        hudTotalScore: document.getElementById('hudTotalScore'),
+        hudStageProgressLabel: document.getElementById('hudStageProgressLabel'),
+        hudStageProgress: document.getElementById('hudStageProgress'),
+        hudStageScore: document.getElementById('hudStageScore'),
+        hudActionLabel: document.getElementById('hudActionLabel'),
+        hudFlips: document.getElementById('hudFlips'),
+        hudTimer: document.getElementById('hudTimer'),
+        progressBarFill: document.getElementById('progressBarFill'),
+        gameMessageBanner: document.getElementById('gameMessageBanner'),
+
+        // Stage Views
+        memoryStageView: document.getElementById('memoryStageView'),
+        cardsGrid: document.getElementById('cardsGrid'),
+        quizStageView: document.getElementById('quizStageView'),
+        quizQuestionBadge: document.getElementById('quizQuestionBadge'),
+        quizQuestionText: document.getElementById('quizQuestionText'),
+        quizOptionsContainer: document.getElementById('quizOptionsContainer'),
+        quizFeedbackBox: document.getElementById('quizFeedbackBox'),
+        quizFeedbackTitle: document.getElementById('quizFeedbackTitle'),
+        quizFeedbackExplanation: document.getElementById('quizFeedbackExplanation'),
+        btnNextQuestion: document.getElementById('btnNextQuestion'),
+        btnCompleteQuizStage: document.getElementById('btnCompleteQuizStage'),
+
+        // Modals
+        stageCompleteModal: document.getElementById('stageCompleteModal'),
+        stageCompleteTitle: document.getElementById('stageCompleteTitle'),
+        stageCompleteSubtitle: document.getElementById('stageCompleteSubtitle'),
+        stageCompletePoints: document.getElementById('stageCompletePoints'),
+        stageCompleteTotalScore: document.getElementById('stageCompleteTotalScore'),
+        stageCompleteStatLabel: document.getElementById('stageCompleteStatLabel'),
+        stageCompleteStatValue: document.getElementById('stageCompleteStatValue'),
+        btnNextStage: document.getElementById('btnNextStage'),
+
+        victoryModal: document.getElementById('victoryModal'),
+        summaryScore: document.getElementById('summaryScore'),
+        summaryStages: document.getElementById('summaryStages'),
+        summaryPairs: document.getElementById('summaryPairs'),
+        summaryQuizCorrect: document.getElementById('summaryQuizCorrect'),
+        summaryQuizIncorrect: document.getElementById('summaryQuizIncorrect'),
+        summaryFlips: document.getElementById('summaryFlips'),
+        summaryTime: document.getElementById('summaryTime'),
+        btnRestartVictory: document.getElementById('btnRestartVictory'),
+        btnHomeVictory: document.getElementById('btnHomeVictory'),
+
+        pauseModal: document.getElementById('pauseModal'),
+        btnResumeGame: document.getElementById('btnResumeGame'),
+        btnRestartFromPause: document.getElementById('btnRestartFromPause'),
+        btnQuitFromPause: document.getElementById('btnQuitFromPause'),
+
+        timeUpModal: document.getElementById('timeUpModal'),
+        btnRetryTimeUp: document.getElementById('btnRetryTimeUp'),
+        btnHomeTimeUp: document.getElementById('btnHomeTimeUp'),
+
+        manualFileInput: document.getElementById('manualFileInput'),
+        btnSelectFile: document.getElementById('btnSelectFile')
+      };
+
+      // --- SCREEN DISPLAY HELPERS ---
+      function showScreen(screen) {
+        els.homeScreen.classList.remove('active');
+        els.gameScreen.classList.remove('active');
+        els.errorScreen.classList.remove('active');
+        screen.classList.add('active');
+      }
+
+      function showModal(modal) {
+        modal.classList.add('active');
+      }
+
+      function hideModal(modal) {
+        modal.classList.remove('active');
+      }
+
+      function setMessageBanner(text, type = 'info') {
+        els.gameMessageBanner.textContent = text;
+        els.gameMessageBanner.className = `game-message-banner ${type}`;
+      }
+
+      // --- ARRAY SHUFFLE (Fisher-Yates) ---
+      function shuffleArray(arr) {
+        const copy = [...arr];
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+      }
+
+      function formatTime(sec) {
+        const m = Math.floor(sec / 60);
+        const s = sec % 60;
+        return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+      }
+
+      // --- DATA VALIDATION ---
+      function validateGameData(json) {
+        if (!json || typeof json !== 'object') {
+          throw new Error('Dữ liệu JSON không hợp lệ hoặc rỗng.');
+        }
+
+        // Validate Pairs
+        if (!Array.isArray(json.pairs) || json.pairs.length === 0) {
+          throw new Error('Không tìm thấy danh sách "pairs" hợp lệ hoặc danh sách rỗng trong questions.json.');
+        }
+
+        const pairsMap = new Map();
+        json.pairs.forEach((pair, idx) => {
+          if (!pair || typeof pair !== 'object') return;
+          const id = pair.id ? String(pair.id) : `pair_${idx + 1}`;
+          if (pairsMap.has(id)) {
+            console.warn(`Cảnh báo: ID cặp trùng lặp "${id}".`);
+          }
+          if (!pair.left || !pair.right || !pair.left.text || !pair.right.text) {
+            console.warn(`Cặp "${id}" thiếu thông tin left.text hoặc right.text.`);
+            return;
+          }
+          pairsMap.set(id, {
+            id: id,
+            category: pair.category || 'chung',
+            left: {
+              type: pair.left.type || 'Khái niệm',
+              text: String(pair.left.text).trim()
+            },
+            right: {
+              type: pair.right.type || 'Đáp án',
+              text: String(pair.right.text).trim()
+            },
+            explanation: pair.explanation ? String(pair.explanation).trim() : ''
+          });
+        });
+
+        // Validate Quiz Questions
+        const quizMap = new Map();
+        if (Array.isArray(json.quizQuestions)) {
+          json.quizQuestions.forEach((q, idx) => {
+            if (!q || typeof q !== 'object') return;
+            const id = q.id ? String(q.id) : `quiz_${idx + 1}`;
+            if (!q.question || !Array.isArray(q.options) || q.options.length < 2 || !q.correctAnswer) {
+              console.warn(`Câu hỏi quiz "${id}" thiếu thông tin bắt buộc.`);
+              return;
+            }
+            quizMap.set(id, {
+              id: id,
+              question: String(q.question).trim(),
+              options: q.options.map(opt => String(opt).trim()),
+              correctAnswer: String(q.correctAnswer).trim(),
+              explanation: q.explanation ? String(q.explanation).trim() : ''
+            });
+          });
+        }
+
+        // Validate Stages
+        if (!Array.isArray(json.stages) || json.stages.length === 0) {
+          throw new Error('Dữ liệu không có danh sách màn chơi (stages) hợp lệ hoặc danh sách rỗng.');
+        }
+
+        const validStages = [];
+        json.stages.forEach((stage, idx) => {
+          if (!stage || typeof stage !== 'object') return;
+          const stageId = stage.id ? String(stage.id) : `stage_${idx + 1}`;
+          const stageType = String(stage.type || '').trim().toLowerCase();
+          const stageTitle = stage.title ? String(stage.title).trim() : `Màn ${idx + 1}`;
+          const stageDesc = stage.description ? String(stage.description).trim() : '';
+
+          if (stageType === 'memory') {
+            if (!Array.isArray(stage.pairIds) || stage.pairIds.length === 0) {
+              throw new Error(`Lỗi cấu hình tại màn "${stageTitle}" (mã: ${stageId}): Màn kiểu "memory" yêu cầu danh sách "pairIds" không rỗng.`);
+            }
+            // Strict ID Check: Every pairId MUST exist in pairsMap
+            stage.pairIds.forEach(pId => {
+              if (!pairsMap.has(pId)) {
+                throw new Error(`Lỗi cấu hình tại màn "${stageTitle}" (mã: ${stageId}): Cặp thẻ mang mã "${pId}" không tồn tại trong danh sách "pairs".`);
+              }
+            });
+            validStages.push({
+              id: stageId,
+              type: 'memory',
+              title: stageTitle,
+              description: stageDesc,
+              pairIds: [...stage.pairIds],
+              settings: stage.settings || {}
+            });
+          } else if (stageType === 'quiz') {
+            if (!Array.isArray(stage.questionIds) || stage.questionIds.length === 0) {
+              throw new Error(`Lỗi cấu hình tại màn "${stageTitle}" (mã: ${stageId}): Màn kiểu "quiz" yêu cầu danh sách "questionIds" không rỗng.`);
+            }
+            // Strict ID Check: Every questionId MUST exist in quizMap
+            stage.questionIds.forEach(qId => {
+              if (!quizMap.has(qId)) {
+                throw new Error(`Lỗi cấu hình tại màn "${stageTitle}" (mã: ${stageId}): Câu hỏi mang mã "${qId}" không tồn tại trong danh sách "quizQuestions".`);
+              }
+            });
+            validStages.push({
+              id: stageId,
+              type: 'quiz',
+              title: stageTitle,
+              description: stageDesc,
+              questionIds: [...stage.questionIds],
+              settings: stage.settings || {}
+            });
+          } else {
+            throw new Error(`Lỗi cấu hình tại màn "${stageTitle}" (mã: ${stageId}): Loại màn "${stage.type}" không được hỗ trợ (chỉ chấp nhận "memory" hoặc "quiz").`);
+          }
+        });
+
+        if (validStages.length === 0) {
+          throw new Error('Không có màn chơi hợp lệ nào trong danh sách "stages".');
+        }
+
+        // Settings sanitize
+        const rawSettings = json.settings || {};
+        const settings = {
+          pointsPerMatch: typeof rawSettings.pointsPerMatch === 'number' && rawSettings.pointsPerMatch > 0
+            ? rawSettings.pointsPerMatch
+            : 100,
+          pointsPerCorrectAnswer: typeof rawSettings.pointsPerCorrectAnswer === 'number' && rawSettings.pointsPerCorrectAnswer > 0
+            ? rawSettings.pointsPerCorrectAnswer
+            : 100,
+          mismatchDelayMs: typeof rawSettings.mismatchDelayMs === 'number' && rawSettings.mismatchDelayMs >= 200
+            ? rawSettings.mismatchDelayMs
+            : 1000,
+          shuffleCards: rawSettings.shuffleCards !== false,
+          shuffleOptions: rawSettings.shuffleOptions !== false,
+          timeLimitSeconds: typeof rawSettings.timeLimitSeconds === 'number' && rawSettings.timeLimitSeconds >= 0
+            ? rawSettings.timeLimitSeconds
+            : 0,
+          numberStart: typeof rawSettings.numberStart === 'number' ? rawSettings.numberStart : 1
+        };
+
+        return {
+          title: json.title || 'MÙA VÀNG THÁNG 10',
+          description: json.description || 'Lật đúng thẻ — Trả lời thông thái — Gặt hái thành công!',
+          settings: settings,
+          stages: validStages,
+          pairsMap: pairsMap,
+          quizMap: quizMap
+        };
+      }
+
+      // --- DATA LOADING ---
+      async function loadGameData() {
+        try {
+          const res = await fetch('questions.json', { cache: 'no-store' });
+          if (!res.ok) {
+            throw new Error(`HTTP ${res.status}: Không thể đọc file questions.json.`);
+          }
+          const raw = await res.json();
+          processLoadedData(raw);
+        } catch (err) {
+          console.error('Lỗi nạp questions.json:', err);
+          showError(err.message);
+        }
+      }
+
+      function showError(msg) {
+        els.errorMessageText.textContent = msg;
+        showScreen(els.errorScreen);
+      }
+
+      function processLoadedData(raw) {
+        try {
+          const clean = validateGameData(raw);
+          journey.data = clean;
+          journey.pairsMap = clean.pairsMap;
+          journey.quizMap = clean.quizMap;
+          journey.totalStages = clean.stages.length;
+
+          // Update Titles
+          if (clean.title) els.appTitle.textContent = clean.title;
+          if (clean.description) els.appSlogan.textContent = clean.description;
+
+          renderJourneyRoadmap();
+          showScreen(els.homeScreen);
+          els.btnStartGame.disabled = false;
+        } catch (err) {
+          console.error('Lỗi kiểm tra cấu trúc dữ liệu:', err);
+          showError(err.message);
+        }
+      }
+
+      // --- RENDER ROADMAP ON HOME SCREEN ---
+      function renderJourneyRoadmap() {
+        const { stages } = journey.data;
+        els.roadmapList.innerHTML = '';
+
+        stages.forEach((stage, idx) => {
+          const item = document.createElement('div');
+          item.className = 'roadmap-item';
+
+          const num = document.createElement('div');
+          num.className = 'roadmap-stage-num';
+          num.textContent = idx + 1;
+
+          const info = document.createElement('div');
+          info.className = 'roadmap-stage-info';
+
+          const title = document.createElement('div');
+          title.className = 'roadmap-stage-title';
+          const icon = stage.type === 'memory' ? '🧩' : '❓';
+          title.innerHTML = `<span>${icon}</span> <span>${stage.title}</span>`;
+
+          const desc = document.createElement('div');
+          desc.className = 'roadmap-stage-desc';
+          desc.textContent = stage.description || '';
+
+          info.appendChild(title);
+          info.appendChild(desc);
+
+          const badge = document.createElement('span');
+          badge.className = `roadmap-stage-badge type-${stage.type}`;
+          if (stage.type === 'memory') {
+            badge.textContent = `Lật thẻ • ${stage.pairIds.length} cặp`;
+          } else {
+            badge.textContent = `Trắc nghiệm • ${stage.questionIds.length} câu`;
+          }
+
+          item.appendChild(num);
+          item.appendChild(info);
+          item.appendChild(badge);
+
+          els.roadmapList.appendChild(item);
+        });
+      }
+
+      // --- JOURNEY CONTROLLER ---
+      function startJourney() {
+        // Reset journey statistics
+        journey.currentStageIndex = 0;
+        journey.totalScore = 0;
+        journey.completedStagesCount = 0;
+        journey.stageResults = [];
+        journey.totalFlips = 0;
+        journey.totalAttempts = 0;
+        journey.totalMatchedPairs = 0;
+        journey.totalMissedPairs = 0;
+        journey.totalQuizCorrect = 0;
+        journey.totalQuizIncorrect = 0;
+        journey.totalTimeSeconds = 0;
+        journey.isPaused = false;
+        journey.isGameOver = false;
+
+        startTimer();
+        loadStage(0);
+        showScreen(els.gameScreen);
+      }
+
+      function loadStage(stageIndex) {
+        if (stageIndex >= journey.totalStages) {
+          showFinalVictory();
+          return;
+        }
+
+        hideModal(els.stageCompleteModal);
+        hideModal(els.victoryModal);
+
+        journey.currentStageIndex = stageIndex;
+        journey.currentStage = journey.data.stages[stageIndex];
+        journey.stageScore = 0;
+        journey.isStageCompleted = false;
+
+        // Update Stage Badge: "Màn X / Y — [Tiêu đề]"
+        const stageNum = stageIndex + 1;
+        const total = journey.totalStages;
+        els.gameStageTitleText.textContent = `Màn ${stageNum} / ${total} — ${journey.currentStage.title}`;
+
+        updateHUD();
+        updateProgressBar();
+
+        // Switch Stage View
+        if (journey.currentStage.type === 'memory') {
+          els.memoryStageView.classList.add('active');
+          els.quizStageView.classList.remove('active');
+          initMemoryStage(journey.currentStage);
+        } else if (journey.currentStage.type === 'quiz') {
+          els.quizStageView.classList.add('active');
+          els.memoryStageView.classList.remove('active');
+          initQuizStage(journey.currentStage);
+        }
+      }
+
+      // --- 1. MEMORY STAGE CONTROLLER ---
+      function initMemoryStage(stage) {
+        els.hudStageProgressLabel.textContent = 'Cặp đã ghép';
+        els.hudActionLabel.textContent = 'Số lần lật';
+
+        journey.memory.cards = [];
+        journey.memory.flippedCards = [];
+        journey.memory.isLocked = false;
+        journey.memory.matchedPairsCount = 0;
+        journey.memory.flipsCount = 0;
+        journey.memory.attemptsCount = 0;
+        journey.memory.missesCount = 0;
+
+        // Retrieve specified pairs
+        const pairs = stage.pairIds.map(id => journey.pairsMap.get(id)).filter(Boolean);
+        journey.memory.totalPairsCount = pairs.length;
+
+        // Generate 2 cards per pair
+        let cardList = [];
+        pairs.forEach(pair => {
+          // Left card
+          cardList.push({
+            cardId: `card_${pair.id}_left`,
+            pairId: pair.id,
+            side: 'left',
+            type: pair.left.type || 'Khái niệm',
+            text: pair.left.text,
+            explanation: pair.explanation || '',
+            isFlipped: false,
+            isMatched: false
+          });
+
+          // Right card
+          cardList.push({
+            cardId: `card_${pair.id}_right`,
+            pairId: pair.id,
+            side: 'right',
+            type: pair.right.type || 'Đáp án',
+            text: pair.right.text,
+            explanation: pair.explanation || '',
+            isFlipped: false,
+            isMatched: false
+          });
+        });
+
+        // Shuffle cards
+        const shouldShuffle = stage.settings && stage.settings.shuffleCards !== undefined
+          ? stage.settings.shuffleCards
+          : journey.data.settings.shuffleCards;
+
+        if (shouldShuffle !== false) {
+          cardList = shuffleArray(cardList);
+        }
+
+        // Assign numbers starting from numberStart
+        const startNum = journey.data.settings.numberStart || 1;
+        cardList.forEach((c, idx) => {
+          c.number = startNum + idx;
+        });
+
+        journey.memory.cards = cardList;
+
+        updateHUD();
+        renderMemoryGrid();
+        setMessageBanner(stage.description || 'Lật thẻ tìm các cặp tương ứng. Chạm lại thẻ đang mở để chủ động úp xuống!', 'info');
+      }
+
+      function renderMemoryGrid() {
+        const grid = els.cardsGrid;
+        grid.innerHTML = '';
+
+        const totalCards = journey.memory.cards.length;
+        grid.className = 'cards-grid';
+        if (totalCards <= 4) {
+          grid.classList.add('cards-4');
+        } else if (totalCards <= 6) {
+          grid.classList.add('cards-6');
+        } else if (totalCards <= 8) {
+          grid.classList.add('cards-8');
+        } else if (totalCards <= 12) {
+          grid.classList.add('cards-12');
+        } else if (totalCards <= 16) {
+          grid.classList.add('cards-16');
+        } else {
+          grid.classList.add('cards-many');
+        }
+
+        journey.memory.cards.forEach((card, index) => {
+          const cardEl = document.createElement('div');
+          cardEl.className = 'memory-card';
+          cardEl.dataset.cardId = card.cardId;
+          cardEl.dataset.index = index;
+          cardEl.setAttribute('role', 'button');
+          cardEl.setAttribute('tabindex', '0');
+          cardEl.setAttribute('aria-label', `Thẻ số ${card.number}`);
+          cardEl.setAttribute('aria-pressed', 'false');
+
+          // Face Back (Mặt úp - hiển thị số)
+          const faceBack = document.createElement('div');
+          faceBack.className = 'card-face card-face-back';
+          faceBack.innerHTML = `
+            <div class="card-back-inner">
+              <span class="card-back-pattern">🌾</span>
+              <span class="card-number">${card.number}</span>
+              <span class="card-back-footer">Mùa vàng</span>
+            </div>
+          `;
+
+          // Face Front (Mặt ngửa - chỉ hiển thị chữ, căn giữa, KHÔNG icon)
+          const faceFront = document.createElement('div');
+          faceFront.className = 'card-face card-face-front';
+
+          const textEl = document.createElement('p');
+          textEl.className = 'card-text';
+          textEl.textContent = card.text;
+
+          faceFront.appendChild(textEl);
+          cardEl.appendChild(faceBack);
+          cardEl.appendChild(faceFront);
+
+          // Card click handler
+          const clickHandler = () => handleMemoryCardClick(card, cardEl);
+
+          cardEl.addEventListener('click', clickHandler);
+          cardEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              clickHandler();
+            }
+          });
+
+          grid.appendChild(cardEl);
+        });
+      }
+
+      function handleMemoryCardClick(card, cardEl) {
+        if (journey.memory.isLocked) return;
+        if (journey.isPaused || journey.isGameOver || journey.isStageCompleted) return;
+        if (card.isMatched) return;
+
+        // RULE: Chủ động úp thẻ chưa ghép đúng
+        if (journey.memory.flippedCards.length === 1 && journey.memory.flippedCards[0].cardId === card.cardId) {
+          card.isFlipped = false;
+          journey.memory.flippedCards = [];
+          cardEl.classList.remove('flipped', 'single-active');
+          cardEl.setAttribute('aria-pressed', 'false');
+          sounds.unflip();
+          setMessageBanner('Đã chủ động úp thẻ xuống. Hãy chọn thẻ bạn muốn lật!', 'info');
+          return;
+        }
+
+        if (card.isFlipped) return;
+        if (journey.memory.flippedCards.length >= 2) return;
+
+        // Flip card up
+        card.isFlipped = true;
+        journey.memory.flippedCards.push(card);
+        journey.memory.flipsCount++;
+        journey.totalFlips++;
+        cardEl.classList.add('flipped');
+        cardEl.setAttribute('aria-pressed', 'true');
+        sounds.flip();
+        updateHUD();
+
+        // 1st card flipped
+        if (journey.memory.flippedCards.length === 1) {
+          cardEl.classList.add('single-active');
+          setMessageBanner(`Đã mở thẻ số ${card.number}. Chạm lại thẻ này để úp lại, hoặc lật thẻ khác để ghép cặp!`, 'info');
+          return;
+        }
+
+        // 2nd card flipped
+        if (journey.memory.flippedCards.length === 2) {
+          const firstCardEl = els.cardsGrid.querySelector(`[data-card-id="${journey.memory.flippedCards[0].cardId}"]`);
+          if (firstCardEl) firstCardEl.classList.remove('single-active');
+
+          journey.memory.attemptsCount++;
+          journey.totalAttempts++;
+          updateHUD();
+
+          const card1 = journey.memory.flippedCards[0];
+          const card2 = journey.memory.flippedCards[1];
+          const el1 = els.cardsGrid.querySelector(`[data-card-id="${card1.cardId}"]`);
+          const el2 = els.cardsGrid.querySelector(`[data-card-id="${card2.cardId}"]`);
+
+          if (card1.pairId === card2.pairId) {
+            // MATCH!
+            card1.isMatched = true;
+            card2.isMatched = true;
+            if (el1) { el1.classList.add('matched'); el1.setAttribute('aria-disabled', 'true'); }
+            if (el2) { el2.classList.add('matched'); el2.setAttribute('aria-disabled', 'true'); }
+
+            journey.memory.matchedPairsCount++;
+            journey.totalMatchedPairs++;
+
+            const pts = (journey.currentStage.settings && journey.currentStage.settings.pointsPerMatch)
+              || journey.data.settings.pointsPerMatch || 100;
+            journey.stageScore += pts;
+            journey.totalScore += pts;
+
+            journey.memory.flippedCards = [];
+            sounds.match();
+            updateHUD();
+
+            const expl = card1.explanation || `${card1.text} và ${card2.text} là một cặp ăn ý!`;
+            setMessageBanner(`🎉 Ghép đúng! (+${pts} điểm) ${expl}`, 'success');
+
+            // Check stage complete
+            if (journey.memory.matchedPairsCount === journey.memory.totalPairsCount) {
+              setTimeout(() => {
+                completeCurrentStage();
+              }, 600);
+            }
+          } else {
+            // MISMATCH!
+            journey.memory.missesCount++;
+            journey.totalMissedPairs++;
+            journey.memory.isLocked = true; // Lock 3rd card flips
+
+            if (el1) el1.classList.add('mismatch');
+            if (el2) el2.classList.add('mismatch');
+
+            sounds.mismatch();
+            updateHUD();
+            setMessageBanner('Chưa phải một cặp! Hãy quan sát và ghi nhớ vị trí nhé...', 'info');
+
+            const delay = (journey.currentStage.settings && journey.currentStage.settings.mismatchDelayMs)
+              || journey.data.settings.mismatchDelayMs || 1000;
+
+            setTimeout(() => {
+              card1.isFlipped = false;
+              card2.isFlipped = false;
+
+              if (el1) {
+                el1.classList.remove('flipped', 'mismatch');
+                el1.setAttribute('aria-pressed', 'false');
+              }
+              if (el2) {
+                el2.classList.remove('flipped', 'mismatch');
+                el2.setAttribute('aria-pressed', 'false');
+              }
+
+              journey.memory.flippedCards = [];
+              journey.memory.isLocked = false;
+              setMessageBanner('Lật tiếp thẻ để tìm cặp phù hợp!', 'info');
+            }, delay);
+          }
+        }
+      }
+
+      // --- 2. QUIZ STAGE CONTROLLER ---
+      function initQuizStage(stage) {
+        els.hudStageProgressLabel.textContent = 'Câu hỏi';
+        els.hudActionLabel.textContent = 'Đã trả lời';
+
+        journey.quiz.questions = stage.questionIds.map(id => journey.quizMap.get(id)).filter(Boolean);
+        journey.quiz.currentQuestionIndex = 0;
+        journey.quiz.totalQuestionsCount = journey.quiz.questions.length;
+        journey.quiz.answeredQuestions = [];
+        journey.quiz.currentAnswered = false;
+        journey.quiz.correctCount = 0;
+        journey.quiz.incorrectCount = 0;
+
+        renderCurrentQuizQuestion();
+      }
+
+      function renderCurrentQuizQuestion() {
+        const qIndex = journey.quiz.currentQuestionIndex;
+        const totalQ = journey.quiz.totalQuestionsCount;
+        const question = journey.quiz.questions[qIndex];
+
+        journey.quiz.currentAnswered = false;
+
+        els.quizQuestionBadge.textContent = `Câu hỏi ${qIndex + 1} / ${totalQ}`;
+        els.quizQuestionText.textContent = question.question;
+
+        // Reset feedback and buttons
+        els.quizFeedbackBox.className = 'quiz-feedback';
+        els.quizFeedbackBox.style.display = 'none';
+        els.btnNextQuestion.style.display = 'none';
+        els.btnCompleteQuizStage.style.display = 'none';
+
+        // Options
+        const shouldShuffle = (journey.currentStage.settings && journey.currentStage.settings.shuffleOptions !== undefined)
+          ? journey.currentStage.settings.shuffleOptions
+          : journey.data.settings.shuffleOptions;
+
+        let options = [...question.options];
+        if (shouldShuffle !== false) {
+          options = shuffleArray(options);
+        }
+
+        const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+        els.quizOptionsContainer.innerHTML = '';
+
+        options.forEach((optText, idx) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'quiz-option-btn';
+          btn.dataset.option = optText;
+
+          const letterSpan = document.createElement('span');
+          letterSpan.className = 'option-letter';
+          letterSpan.textContent = letters[idx] || `${idx + 1}`;
+
+          const textSpan = document.createElement('span');
+          textSpan.className = 'option-text';
+          textSpan.textContent = optText;
+
+          btn.appendChild(letterSpan);
+          btn.appendChild(textSpan);
+
+          btn.addEventListener('click', () => {
+            handleSelectQuizOption(optText, btn, question);
+          });
+
+          els.quizOptionsContainer.appendChild(btn);
+        });
+
+        updateHUD();
+        setMessageBanner('Đọc câu hỏi và chọn đáp án chính xác nhất.', 'info');
+      }
+
+      function handleSelectQuizOption(selectedText, chosenBtn, question) {
+        // Guard against duplicate answering
+        if (journey.quiz.currentAnswered) return;
+        journey.quiz.currentAnswered = true;
+
+        // Lock all options immediately
+        const allBtns = els.quizOptionsContainer.querySelectorAll('.quiz-option-btn');
+        allBtns.forEach(b => b.disabled = true);
+
+        const isCorrect = (selectedText.trim() === question.correctAnswer.trim());
+        const pts = (journey.currentStage.settings && journey.currentStage.settings.pointsPerCorrectAnswer)
+          || journey.data.settings.pointsPerCorrectAnswer || 100;
+
+        if (isCorrect) {
+          chosenBtn.classList.add('correct');
+          journey.quiz.correctCount++;
+          journey.totalQuizCorrect++;
+          journey.stageScore += pts;
+          journey.totalScore += pts;
+
+          sounds.match();
+
+          els.quizFeedbackBox.className = 'quiz-feedback success active';
+          els.quizFeedbackBox.style.display = 'block';
+          els.quizFeedbackTitle.innerHTML = `🎉 CHÍNH XÁC! (+${pts} điểm)`;
+          els.quizFeedbackExplanation.textContent = question.explanation || 'Câu trả lời hoàn toàn chính xác!';
+          setMessageBanner(`🎉 Chính xác! Bạn nhận được +${pts} điểm.`, 'success');
+        } else {
+          chosenBtn.classList.add('incorrect');
+          journey.quiz.incorrectCount++;
+          journey.totalQuizIncorrect++;
+
+          // Highlight the correct answer
+          allBtns.forEach(b => {
+            if (b.dataset.option.trim() === question.correctAnswer.trim()) {
+              b.classList.add('correct');
+            }
+          });
+
+          sounds.mismatch();
+
+          els.quizFeedbackBox.className = 'quiz-feedback error active';
+          els.quizFeedbackBox.style.display = 'block';
+          els.quizFeedbackTitle.innerHTML = `⚠️ CHƯA CHÍNH XÁC!`;
+          els.quizFeedbackExplanation.innerHTML = `Đáp án đúng là: <strong>${question.correctAnswer}</strong>.<br>${question.explanation || ''}`;
+          setMessageBanner(`Chưa chính xác! Đáp án đúng: "${question.correctAnswer}".`, 'warning');
+        }
+
+        journey.quiz.answeredQuestions.push({
+          questionId: question.id,
+          selected: selectedText,
+          isCorrect: isCorrect
+        });
+
+        updateHUD();
+
+        // Check if there are more questions in this quiz stage
+        if (journey.quiz.currentQuestionIndex < journey.quiz.totalQuestionsCount - 1) {
+          els.btnNextQuestion.style.display = 'inline-flex';
+        } else {
+          // Last question of this quiz stage
+          els.btnCompleteQuizStage.style.display = 'inline-flex';
+        }
+      }
+
+      // --- STAGE COMPLETION HANDLING ---
+      function completeCurrentStage() {
+        journey.isStageCompleted = true;
+        sounds.stageComplete();
+
+        journey.stageResults.push({
+          stageIndex: journey.currentStageIndex,
+          stageId: journey.currentStage.id,
+          stageType: journey.currentStage.type,
+          stageTitle: journey.currentStage.title,
+          score: journey.stageScore
+        });
+
+        journey.completedStagesCount++;
+
+        // Fill stage complete modal
+        const stageNum = journey.currentStageIndex + 1;
+        els.stageCompleteTitle.textContent = `HOÀN THÀNH MÀN ${stageNum}!`;
+        els.stageCompleteSubtitle.textContent = `Bạn đã xuất sắc vượt qua: "${journey.currentStage.title}"`;
+        els.stageCompletePoints.textContent = `+${journey.stageScore} điểm`;
+        els.stageCompleteTotalScore.textContent = `${journey.totalScore} điểm`;
+
+        if (journey.currentStage.type === 'memory') {
+          els.stageCompleteStatLabel.textContent = 'Cặp thẻ đã ghép';
+          els.stageCompleteStatValue.textContent = `${journey.memory.matchedPairsCount} / ${journey.memory.totalPairsCount}`;
+        } else {
+          els.stageCompleteStatLabel.textContent = 'Câu quiz đúng';
+          els.stageCompleteStatValue.textContent = `${journey.quiz.correctCount} / ${journey.quiz.totalQuestionsCount}`;
+        }
+
+        // Action button text
+        if (journey.currentStageIndex < journey.totalStages - 1) {
+          els.btnNextStage.textContent = 'MÀN TIẾP THEO 🌾 ➔';
+          els.btnNextStage.className = 'btn btn-primary btn-lg';
+        } else {
+          els.btnNextStage.textContent = 'XEM KẾT QUẢ TỔNG KẾT 🏆';
+          els.btnNextStage.className = 'btn btn-success btn-lg';
+        }
+
+        updateProgressBar();
+        showModal(els.stageCompleteModal);
+      }
+
+      // --- FINAL VICTORY SUMMARY ---
+      function showFinalVictory() {
+        journey.isGameOver = true;
+        clearInterval(journey.timerInterval);
+        hideModal(els.stageCompleteModal);
+        sounds.victory();
+
+        els.summaryScore.textContent = `${journey.totalScore} điểm`;
+        els.summaryStages.textContent = `${journey.completedStagesCount} / ${journey.totalStages}`;
+        els.summaryPairs.textContent = journey.totalMatchedPairs;
+        els.summaryQuizCorrect.textContent = journey.totalQuizCorrect;
+        els.summaryQuizIncorrect.textContent = journey.totalQuizIncorrect;
+        els.summaryFlips.textContent = journey.totalFlips;
+        els.summaryTime.textContent = formatTime(journey.totalTimeSeconds);
+
+        updateProgressBar();
+        showModal(els.victoryModal);
+      }
+
+      // --- TIMER CONTROLLER ---
+      function startTimer() {
+        clearInterval(journey.timerInterval);
+        const timeLimit = journey.data.settings.timeLimitSeconds || 0;
+
+        if (timeLimit > 0) {
+          journey.totalTimeSeconds = timeLimit;
+          els.hudTimer.textContent = formatTime(journey.totalTimeSeconds);
+
+          journey.timerInterval = setInterval(() => {
+            if (journey.isPaused || journey.isGameOver) return;
+            journey.totalTimeSeconds--;
+            els.hudTimer.textContent = formatTime(journey.totalTimeSeconds);
+
+            if (journey.totalTimeSeconds <= 0) {
+              clearInterval(journey.timerInterval);
+              handleTimeUp();
+            }
+          }, 1000);
+        } else {
+          journey.totalTimeSeconds = 0;
+          els.hudTimer.textContent = formatTime(0);
+
+          journey.timerInterval = setInterval(() => {
+            if (journey.isPaused || journey.isGameOver) return;
+            journey.totalTimeSeconds++;
+            els.hudTimer.textContent = formatTime(journey.totalTimeSeconds);
+          }, 1000);
+        }
+      }
+
+      function handleTimeUp() {
+        journey.isGameOver = true;
+        sounds.mismatch();
+        showModal(els.timeUpModal);
+      }
+
+      // --- UI UPDATERS ---
+      function updateHUD() {
+        els.hudTotalScore.textContent = journey.totalScore;
+        els.hudStageScore.textContent = journey.stageScore;
+
+        if (journey.currentStage) {
+          if (journey.currentStage.type === 'memory') {
+            els.hudStageProgress.textContent = `${journey.memory.matchedPairsCount}/${journey.memory.totalPairsCount}`;
+            els.hudFlips.textContent = journey.memory.flipsCount;
+          } else if (journey.currentStage.type === 'quiz') {
+            const answered = journey.quiz.answeredQuestions.length;
+            els.hudStageProgress.textContent = `${answered}/${journey.quiz.totalQuestionsCount}`;
+            els.hudFlips.textContent = answered;
+          }
+        }
+      }
+
+      function updateProgressBar() {
+        if (!journey.totalStages) return;
+        const pct = Math.round((journey.completedStagesCount / journey.totalStages) * 100);
+        els.progressBarFill.style.width = `${pct}%`;
+        const bar = els.progressBarFill.parentElement;
+        if (bar) bar.setAttribute('aria-valuenow', pct);
+      }
+
+      function togglePause(shouldPause) {
+        journey.isPaused = shouldPause;
+        if (shouldPause) {
+          showModal(els.pauseModal);
+        } else {
+          hideModal(els.pauseModal);
+        }
+      }
+
+      // --- EVENT HANDLERS ---
+      function initEvents() {
+        // Start Journey button
+        els.btnStartGame.addEventListener('click', () => {
+          if (!journey.data) return;
+          startJourney();
+        });
+
+        // Stage complete next button
+        els.btnNextStage.addEventListener('click', () => {
+          if (journey.currentStageIndex < journey.totalStages - 1) {
+            loadStage(journey.currentStageIndex + 1);
+          } else {
+            showFinalVictory();
+          }
+        });
+
+        // Quiz next question & complete stage buttons
+        els.btnNextQuestion.addEventListener('click', () => {
+          journey.quiz.currentQuestionIndex++;
+          renderCurrentQuizQuestion();
+        });
+
+        els.btnCompleteQuizStage.addEventListener('click', () => {
+          completeCurrentStage();
+        });
+
+        // Restart entire journey handlers
+        const handleRestartEntireJourney = () => {
+          if (confirm('Bắt đầu lại hành trình từ màn đầu tiên? Mọi điểm số và tiến trình sẽ được đặt lại.')) {
+            hideModal(els.pauseModal);
+            hideModal(els.stageCompleteModal);
+            hideModal(els.victoryModal);
+            hideModal(els.timeUpModal);
+            startJourney();
+          }
+        };
+
+        els.btnRestartJourney.addEventListener('click', handleRestartEntireJourney);
+        els.btnRestartBottom.addEventListener('click', handleRestartEntireJourney);
+        els.btnRestartFromPause.addEventListener('click', handleRestartEntireJourney);
+        els.btnRestartVictory.addEventListener('click', () => {
+          hideModal(els.victoryModal);
+          startJourney();
+        });
+        els.btnRetryTimeUp.addEventListener('click', () => {
+          hideModal(els.timeUpModal);
+          startJourney();
+        });
+
+        // Navigation to home
+        const handleReturnHome = () => {
+          if (confirm('Dừng hành trình và quay về trang chủ?')) {
+            clearInterval(journey.timerInterval);
+            hideModal(els.pauseModal);
+            hideModal(els.stageCompleteModal);
+            hideModal(els.victoryModal);
+            hideModal(els.timeUpModal);
+            showScreen(els.homeScreen);
+          }
+        };
+
+        els.btnHomeFromGame.addEventListener('click', handleReturnHome);
+        els.btnHomeBottom.addEventListener('click', handleReturnHome);
+        els.btnQuitFromPause.addEventListener('click', () => {
+          hideModal(els.pauseModal);
+          clearInterval(journey.timerInterval);
+          showScreen(els.homeScreen);
+        });
+        els.btnHomeVictory.addEventListener('click', () => {
+          hideModal(els.victoryModal);
+          showScreen(els.homeScreen);
+        });
+        els.btnHomeTimeUp.addEventListener('click', () => {
+          hideModal(els.timeUpModal);
+          showScreen(els.homeScreen);
+        });
+
+        // Sound Toggle
+        els.btnToggleAudio.addEventListener('click', () => {
+          const isSoundOn = sounds.toggle();
+          els.btnToggleAudio.textContent = isSoundOn ? '🔊' : '🔇';
+          els.btnToggleAudio.setAttribute('aria-label', isSoundOn ? 'Tắt âm thanh' : 'Bật âm thanh');
+        });
+
+        // Pause / Resume
+        els.btnPauseGame.addEventListener('click', () => togglePause(true));
+        els.btnResumeGame.addEventListener('click', () => togglePause(false));
+
+        // Manual File Input fallback (for file:// protocol where fetch is blocked)
+        els.btnSelectFile.addEventListener('click', () => {
+          els.manualFileInput.click();
+        });
+
+        els.manualFileInput.addEventListener('change', (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            try {
+              const raw = JSON.parse(event.target.result);
+              processLoadedData(raw);
+            } catch (err) {
+              alert('File JSON không hợp lệ: ' + err.message);
+            }
+          };
+          reader.readAsText(file, 'utf-8');
+        });
+      }
+
+      // Expose to window for debugging & automated testing
+      window.journey = journey;
+      window.validateGameData = validateGameData;
+      window.loadStage = loadStage;
+      window.startJourney = startJourney;
+      window.completeCurrentStage = completeCurrentStage;
+      window.processLoadedData = processLoadedData;
+
+      // --- INITIALIZE APPLICATION ---
+      function init() {
+        initEvents();
+        loadGameData();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
